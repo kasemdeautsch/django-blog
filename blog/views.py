@@ -56,6 +56,7 @@ def post_detail(request, slug):
                 request, messages.SUCCESS,
                 'Comment submitted and awaiting approval'
             )
+
     comment_form = CommentForm()
 
     return render(
