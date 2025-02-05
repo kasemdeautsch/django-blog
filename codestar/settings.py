@@ -35,8 +35,9 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '8000-kasemdeautsc-djangoblog-7ocr5iu3sqd.ws.codeinstitute-ide.net',
-    '.herokuapp.com']
+    '127.0.0.1',
+    '.herokuapp.com',
+    ]
 
 
 # Application definition
@@ -122,6 +123,7 @@ if 'test' in sys.argv:
 
 CSRF_TRUSTED_ORIGINS = [
     "https://*.codeinstitute-ide.net/",
+    "https://localhost",
     "https://*.herokuapp.com"
 ]
 # Password validation
