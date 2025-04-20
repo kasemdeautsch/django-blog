@@ -1,4 +1,4 @@
-console.log("Life, The Universe and Everything!!!.");
+console.log("Life, Changed----.");
 
 const editButtons = document.getElementsByClassName("btn-edit");
 const commentText = document.getElementById("id_body");
@@ -35,9 +35,9 @@ for (let button of editButtons) {
 * For each button in the `deleteButtons` collection:
 * - Retrieves the associated comment's ID upon click.
 * - Updates the `deleteConfirm` link's href to point to the 
-* deletion endpoint for the specific comment.
+*   deletion endpoint for the specific comment.
 * - Displays a confirmation modal (`deleteModal`) to prompt 
-* the user for confirmation before deletion.
+*   the user for confirmation before deletion.
 */
 for (let button of deleteButtons) {
   button.addEventListener("click", (e) => {

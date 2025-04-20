@@ -10,9 +10,6 @@ from .forms import CommentForm
 # Create your views here.
 
 
-# def my_blog(request):
-#    return HttpResponse("Hello, Blog!!")
-
 class PostList(generic.ListView):
     # model = Post
 
@@ -23,7 +20,7 @@ class PostList(generic.ListView):
     # queryset = Post.objects.filter(status=1)
     # template_name = "post_list.html"
     template_name = "blog/index.html"
-    paginate_by = 6
+    paginate_by = 10
 
 
 def post_detail(request, slug):
@@ -61,10 +58,10 @@ def post_detail(request, slug):
             comment.post = post
             comment.save()
             messages.add_message(
-                request, messages.SUCCESS,
+                request, 50,
                 'Comment submitted and awaiting approval'
             )
-
+    print('messages.SUCCESS-------->', messages.SUCCESS)
     comment_form = CommentForm()
     print("About to render template")
     return render(
@@ -75,6 +72,7 @@ def post_detail(request, slug):
             "comments": comments,
             "comment_count": comment_count,
             "comment_form": comment_form,
+            "coder": "kas",
         },
     )
 

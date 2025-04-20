@@ -77,14 +77,17 @@
             </div>
         </div>
     </nav>
+    <p>request.path: {{ request.path }}</p>
+    <p>home: {% url 'home' %}</p>
+    <p>about: {% url 'about' %}</p>
 
     <!-- displaying Django messages -->
     <div class="container">
         <div class="row">
             <div class="col-md-8 offset-md-2">
                 {% for message in messages %}
-                <div class="alert {{ message.tags }} alert-dismissible
-          fade show" id="msg" role="alert">
+                <p message.tags: {{ message.tags }}></p>
+                <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
                     {{ message | safe }}
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
@@ -92,6 +95,13 @@
             </div>
         </div>
     </div>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
 
     <main class="flex-shrink-0 main-bg">
 
