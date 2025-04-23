@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os
 import sys
+from datetime import date, datetime
+from django.utils import timezone
 from django.contrib.messages import constants as messages
 import dj_database_url
 if os.path.isfile('env.py'):
@@ -122,7 +124,7 @@ if 'test' in sys.argv:
 
 CSRF_TRUSTED_ORIGINS = [
     "https://*.codeinstitute-ide.net/",
-    "https://localhost",
+    #"https://localhost",
     "https://*.herokuapp.com"
 ]
 # Password validation
@@ -172,3 +174,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+print('today: ', date.today())
+print('now:      ', datetime.now())
+print('timezone: ', timezone.now())

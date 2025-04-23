@@ -21,10 +21,10 @@ class Post(models.Model):
     featured_image = CloudinaryField('image', default='placeholder')
 
     content = models.TextField()
-    created_on = models.DateTimeField(auto_now_add=True)
+    created_on = models.DateTimeField(auto_now_add=True)# Automatically set the field to now when the object is first created
     status = models.IntegerField(choices=STATUS, default=0)
     excerpt = models.TextField(blank=True)
-    updated_on = models.DateTimeField(auto_now=True)
+    updated_on = models.DateTimeField(auto_now=True)# Automatically set the field to now every time the object is saved
     # field_2 = models.IntegerField(default=47)
     # field_3 = models.CharField(null=True)
 

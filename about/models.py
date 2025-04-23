@@ -12,7 +12,7 @@ class About(models.Model):
     title = models.CharField(max_length=50)
     content = models.TextField()
     updated_on = models.DateTimeField(auto_now=True)
-    profile_image = CloudinaryField('image', default='placeholder')
+    profilee_image = CloudinaryField('image', default='placeholder')
 
     def __str__(self):
         return f'{self.title}.'
@@ -26,6 +26,6 @@ class CollaborateRequest(models.Model):
     email = models.EmailField()
     message = models.TextField()
     read = models.BooleanField(default=False)
-
+    profile_image = CloudinaryField('image', default='placeholder')
     def __str__(self):
         return f"Collaboration request from {self.name}"
