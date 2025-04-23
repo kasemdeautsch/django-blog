@@ -50,8 +50,8 @@ def post_detail(request, slug):
     comment_count = post.comments.filter(approved=True).count()
 
     if request.method == "POST":
-        print("Received a POST request:", request.POST)
-        print("User:", request.user)
+        #print("Received a POST request:", request.POST)
+        #print("User:", request.user)
         comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid():
             comment = comment_form.save(commit=False)
@@ -62,11 +62,11 @@ def post_detail(request, slug):
                 request, 50,
                 'Comment submitted and awaiting approval'
             )
-    print('messages.SUCCESS-------->', messages.SUCCESS)
+    #print('messages.SUCCESS-------->', messages.SUCCESS)
     comment_form = CommentForm()
-    print("About to render template:", request.GET)
-    print("User:", request.user)
-    print("User2:", request.user.email)
+    #print("About to render template:", request.GET)
+    #print("User:", request.user)
+    #print("User2:", request.user.email)
     return render(
         request,
         "blog/post_detail.html",
