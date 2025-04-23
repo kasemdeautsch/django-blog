@@ -1,4 +1,4 @@
-console.log("Life, Changed----.");
+console.log("changed ba kas...");
 
 const editButtons = document.getElementsByClassName("btn-edit");
 const commentText = document.getElementById("id_body");
