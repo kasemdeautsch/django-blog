@@ -43,3 +43,61 @@ def about_me(request):
             "collaborate_form": collaborate_form
         },
     )
+
+#print('clean_time Admin starts--')
+#print('clean_time:', time_obj, 'with', tt, 'equal:', time_obj == tt)
+
+"""
+print('---------------------------------')
+print('1--data:', reservation_form.data)
+print('1--cleaned-data:', reservation_form.cleaned_data)
+print('1--date: ', reservation_form.cleaned_data['date'], 'type', type(reservation_form.cleaned_data['date']))
+print('1--time: ', reservation_form.cleaned_data['time'], 'type', type(reservation_form.cleaned_data['time']))
+print('---------------------------------')
+
+
+print('---------------------------------')
+print('2--data:', reservation_form.data)
+print('2--cleaned-data:', reservation_form.cleaned_data)
+print('---------------------------------')
+print("------Errors", reservation_form.errors)
+print("------Errors>>", reservation_form.errors.as_json())
+
+
+
+"""
+
+# class ReservationListView(ListView):
+
+"""""
+
+from django.views.generic import ListView, CreateView, TemplateView
+
+class ReservationList(ListView):
+    # model = Reservation
+    context_object_name = 'reservations'
+    # queryset = Reservation.objects.all()
+    # queryset = Reservation.objects.filter(name='jamal')
+    queryset = Reservation.objects.all().order_by("-date")
+    template_name = "booking/index.html"
+    #paginate_by = 6
+    
+
+"""
+"""
+class ResevationCreateView(CreateView):
+    model = Reservation
+    fields = ["name", "date", "time", "time", "notes", "user"]
+"""
+
+"""
+<!--
+        {% for field in reservation_form %}
+          {% if field.errors %}
+            <div class="error">{{ field.errors }}</div>
+          {% endif %}
+        {% endfor %}
+        
+        <p>Errors: {{ reservation_form.errors }}</p>
+      -->
+"""

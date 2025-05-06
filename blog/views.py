@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse
 # from django.http import HttpResponse
 from django.views import generic
 from django.contrib import messages
+from django.contrib.messages import get_messages
 from django.http import HttpResponseRedirect
 from .models import Post, Comment
 
@@ -50,18 +51,31 @@ def post_detail(request, slug):
     comment_count = post.comments.filter(approved=True).count()
 
     if request.method == "POST":
-        #print("Received a POST request:", request.POST)
-        #print("User:", request.user)
+        print("Received a POST request:", request.POST)
+        text = request.POST.get('body')
+        print('comment_text= ', text)
+        print("User:", request.user)
         comment_form = CommentForm(data=request.POST)
-        if comment_form.is_valid():
+        if text.isdigit():
+            messages.add_message(request, messages.INFO, 'digits')
+        elif comment_form.is_valid():
             comment = comment_form.save(commit=False)
             comment.author = request.user
             comment.post = post
             comment.save()
+            #messages.success(request, f'Removed {product.name} from your bag')
             messages.add_message(
-                request, 50,
+                request, messages.SUCCESS,
                 'Comment submitted and awaiting approval'
             )
+        else:
+            messages.add_message(request, messages.ERROR, 'Error')
+        print('messages.SUCCESS: ', messages.SUCCESS)
+        print('messages.SUCCESS: ', messages.success)
+        storage = get_messages(request)
+        for message in storage:
+            print('message.level>>>>', message.level)
+            print('message.tags>>>>', message.tags)
     #print('messages.SUCCESS-------->', messages.SUCCESS)
     comment_form = CommentForm()
     #print("About to render template:", request.GET)

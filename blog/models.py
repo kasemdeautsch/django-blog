@@ -22,7 +22,7 @@ class Post(models.Model):
 
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)# Automatically set the field to now when the object is first created
-    status = models.IntegerField(choices=STATUS, default=0)
+    status = models.IntegerField(choices=STATUS, default=0) # https://docs.djangoproject.com/en/4.2/ref/models/fields/#django.db.models.DateField
     excerpt = models.TextField(blank=True)
     updated_on = models.DateTimeField(auto_now=True)# Automatically set the field to now every time the object is saved
     # field_2 = models.IntegerField(default=47)
