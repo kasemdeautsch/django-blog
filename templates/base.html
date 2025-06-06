@@ -83,6 +83,7 @@
     <p>about: {% url 'about' %}</p>
     
     <!-- displaying Django messages -->
+     {% if messages %}
     <div class="container">
         <div class="row">
             <div class="col-md-8 offset-md-2">
@@ -99,6 +100,7 @@
             </div>
         </div>
     </div>
+    {% endif %}
     {% if messages %}
     <ul class="messages">
         {% for message in messages %}

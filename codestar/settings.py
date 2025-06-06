@@ -157,6 +157,7 @@ TIME_ZONE = 'UTC'
 USE_I18N = False
 
 USE_TZ = True
+
 print('messages.SUCCESS1: ', messages.SUCCESS)
 MESSAGE_TAGS = {
     messages.SUCCESS: 'alert-success',
@@ -171,6 +172,7 @@ print('messages.SUCCESS3: ', MESSAGE_TAGS[messages.SUCCESS])
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 

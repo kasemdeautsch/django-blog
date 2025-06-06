@@ -100,4 +100,16 @@ class ResevationCreateView(CreateView):
         
         <p>Errors: {{ reservation_form.errors }}</p>
       -->
+
+
+
+from datetime import timezone, timedelta
+from django.utils import timezone
+s=timezone.now().date() + timedelta(days=1)
+n1= (timezone.now() + timedelta(days=1)).date().isoformat()
+n2= (timezone.now() + timedelta(days=1)).date()
+print('res1:', n1)
+print('res2:', n2)
+
 """
+
