@@ -21,7 +21,11 @@ class TestBlogViews(TestCase):
     def test_render_post_detail_page_with_comment_form(self):
         response = self.client.get(reverse(
             'post_detail', args=['blog-title']))
-        # print(response.context)
+        print('1--------------------------')
+        print('response.context-->>', response.context)
+        print('2--------------------------')
+        print('response.content-->>', response.content)
+        print('3--------------------------')
         self.assertEqual(response.status_code, 200)
         self.assertIn(b"Blog title", response.content)
         self.assertIn(b"Blog content", response.content)
@@ -38,7 +42,12 @@ class TestBlogViews(TestCase):
             'body': 'This is a test comment.'
         }
         response = self.client.post(reverse(
-            'post_detail', args=['blog-title']), post_data)
+            'post_detail', args=['blog-title1']), post_data)
+        # print('1--------------------------')
+        # print('response.context-->>', response.context)
+        # print('2--------------------------')
+        # print('response.content-->>', response.content)
+        # print('3--------------------------')
         self.assertEqual(response.status_code, 200)
         self.assertIn(
             b'Comment submitted and awaiting approval',

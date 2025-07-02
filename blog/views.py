@@ -29,7 +29,6 @@ def post_detail(request, slug):
     Display an individual :model:`blog.Post`.
 
     **Context**
-
     ``post``
         An instance of :model:`blog.Post`.
     ``comments``
@@ -70,12 +69,12 @@ def post_detail(request, slug):
             )
         else:
             messages.add_message(request, messages.ERROR, 'Error')
-        print('messages.SUCCESS: ', messages.SUCCESS)
-        print('messages.SUCCESS: ', messages.success)
-        storage = get_messages(request)
-        for message in storage:
-            print('message.level>>>>', message.level)
-            print('message.tags>>>>', message.tags)
+        # print('messages.SUCCESS: ', messages.SUCCESS)
+        # print('messages.SUCCESS: ', messages.success)
+        # storage = get_messages(request)
+        # for message in storage:
+            # print('message.level>>>>', message.level)
+            # print('message.tags>>>>', message.tags)
     #print('messages.SUCCESS-------->', messages.SUCCESS)
     comment_form = CommentForm()
     #print("About to render template:", request.GET)

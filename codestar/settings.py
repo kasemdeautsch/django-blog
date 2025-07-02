@@ -29,6 +29,7 @@ print('constants', messages)
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = 'django-insecure-@2)yin*1q*mq$3jv@7g_+urffl8ipall&u6f&w385s@o8v7)0l'
+# SECRET_KEY = os.environ.get("SECRET_KEY")
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 
@@ -158,13 +159,13 @@ USE_I18N = False
 
 USE_TZ = True
 
-print('messages.SUCCESS1: ', messages.SUCCESS)
+# print('messages.SUCCESS1: ', messages.SUCCESS)
 MESSAGE_TAGS = {
     messages.SUCCESS: 'alert-success',
     messages.ERROR: 'alert-danger',
 }
-print('messages.SUCCESS2: ', messages.SUCCESS)
-print('messages.SUCCESS3: ', MESSAGE_TAGS[messages.SUCCESS])
+# print('messages.SUCCESS2: ', messages.SUCCESS)
+# print('messages.SUCCESS3: ', MESSAGE_TAGS[messages.SUCCESS])
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
@@ -178,6 +179,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-print('today: ', date.today())
-print('now:      ', datetime.now())
-print('timezone: ', timezone.now())
+# print('today: ', date.today())
+# print('now:      ', datetime.now())
+# print('timezone: ', timezone.now())

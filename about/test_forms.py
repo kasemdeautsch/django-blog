@@ -7,7 +7,7 @@ class TestCollaborateForm(TestCase):
     def test_form_is_valid(self):
         """ Test for all fields"""
         form = CollaborateForm({
-            'name': 'man',
+            'name': 'matt',
             'email': 'test@test.com',
             'message': 'Hello!'
         })
